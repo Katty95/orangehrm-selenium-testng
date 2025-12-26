@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-12-26T12:24:49 IST" name="Default suite" finished-at="2025-12-26T12:25:25 IST" duration-ms="36383">
+    <groups>
+    </groups>
+    <test started-at="2025-12-26T12:24:49 IST" name="Default test" finished-at="2025-12-26T12:25:25 IST" duration-ms="36383">
+      <class name="tests.LoginCheckTestNG">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.LoginCheckTestNG@3eb738bb]" started-at="2025-12-26T12:24:49 IST" name="setup" finished-at="2025-12-26T12:25:00 IST" duration-ms="11280" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="loginFail()[pri:1, instance:tests.LoginCheckTestNG@3eb738bb]" started-at="2025-12-26T12:25:00 IST" name="loginFail" finished-at="2025-12-26T12:25:03 IST" duration-ms="2350" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFail -->
+        <test-method signature="loginTest()[pri:2, instance:tests.LoginCheckTestNG@3eb738bb]" started-at="2025-12-26T12:25:03 IST" name="loginTest" finished-at="2025-12-26T12:25:04 IST" duration-ms="1333" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method signature="AddEmployee()[pri:3, instance:tests.LoginCheckTestNG@3eb738bb]" started-at="2025-12-26T12:25:04 IST" name="AddEmployee" finished-at="2025-12-26T12:25:13 IST" duration-ms="9413" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddEmployee -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.LoginCheckTestNG@3eb738bb]" started-at="2025-12-26T12:25:13 IST" name="teardown" finished-at="2025-12-26T12:25:25 IST" duration-ms="11925" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.LoginCheckTestNG -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
