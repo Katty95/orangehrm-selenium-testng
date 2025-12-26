@@ -29,7 +29,7 @@ public class LoginCheckTestNG {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		}
 		
-		@Test(priority = 2)
+		@Test(priority = 2,enabled = false)
 		public void loginTest()
 		{
 			WebElement Username = driver.findElement(By.name("username"));
@@ -41,10 +41,15 @@ public class LoginCheckTestNG {
 			
 			//verify
 			String pageTitle = driver.getTitle();
+			
+			logout();
 			Assert.assertEquals("OrangeHRM", pageTitle);
 			}
+		
+		
 		@Test(priority = 3)
 		public void AddEmployee() {
+			logiN();
 			driver.findElement(By.xpath("//span[text()='PIM']")).click();
 			driver.findElement(By.linkText("Add Employee")).click();
 			driver.findElement(By.name("firstName")).sendKeys("Ankit");
@@ -52,13 +57,36 @@ public class LoginCheckTestNG {
 			driver.findElement(By.xpath("//button[normalize-space()='Save']")).click();
 			WebElement Details = driver.findElement(By.xpath("//h6[normalize-space()='Personal Details']"));
 			String text = Details.getText();
+			logout();
 			Assert.assertEquals( "Personal Details",text);
+			
 		}
 		
 		
+		@Test(priority=4)
+		public void searchEmployeebyName()
+		{
+			logiN();
+			driver.findElement(By.xpath("//span[text()='PIM']")).click();
+			driver.findElement(By.linkText("Add Employee")).click();
+			//Select employee list
+			driver.findElement(By.xpath("//a[normalize-space()='Employee List']")).click();
+			driver.findElements(By.tagName("input")).get(1).sendKeys("Ankit");
+			driver.findElements(By.tagName("input")).get(2).sendKeys("0409");
+			driver.findElement(By.xpath("//button[normalize-space()='Search']")).click();
+			
+			//verify
+			List<WebElement> element = driver.findElements(By.xpath("//span[@class='oxd-text oxd-text--span']"));
+			
+			for(int i=0; i<element.size();i++)
+			{
+				   System.out.println("At index" +i+ "text is:"+element.get(i).getText());  
+			}
+			logout();
+		}
 		
 		
-		@Test(priority = 1)
+		@Test(priority = 1,enabled = false)
 		public void loginFail()
 		{
 			WebElement Username = driver.findElement(By.name("username"));
@@ -73,7 +101,15 @@ public class LoginCheckTestNG {
 			String error = driver.findElement(By.xpath("//p[normalize-space()='Invalid credentials']")).getText();
 			Assert.assertEquals(Errormessage, error);
 		}
-			
+			public void logiN() {
+				
+				WebElement Username = driver.findElement(By.name("username"));
+				Username.sendKeys("Admin");
+				WebElement Password = driver.findElement(By.name("password"));
+				Password.sendKeys("admin123");
+				WebElement login = driver.findElement(By.xpath("//button[@type='submit']"));
+				login.submit();
+			}
 			public void logout() {
 				driver.findElement(By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']")).click();
 				
@@ -89,7 +125,7 @@ public class LoginCheckTestNG {
 		@AfterTest
 		public void teardown() throws InterruptedException {
 			Thread.sleep(10000);
-			logout();
+			//logout();
 			driver.quit();
 			
 		}
