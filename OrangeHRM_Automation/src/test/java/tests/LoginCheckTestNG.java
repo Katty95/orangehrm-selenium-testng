@@ -72,16 +72,18 @@ public class LoginCheckTestNG {
 			//Select employee list
 			driver.findElement(By.xpath("//a[normalize-space()='Employee List']")).click();
 			driver.findElements(By.tagName("input")).get(1).sendKeys("Ankit");
-			driver.findElements(By.tagName("input")).get(2).sendKeys("0409");
+			//driver.findElements(By.tagName("input")).get(2).sendKeys("0409");
 			driver.findElement(By.xpath("//button[normalize-space()='Search']")).click();
 			
 			//verify
 			List<WebElement> element = driver.findElements(By.xpath("//span[@class='oxd-text oxd-text--span']"));
-			
-			for(int i=0; i<element.size();i++)
+			String actual = element.get(0).getText();
+			String Excepted_Message = "(107) Record Found";
+			//Assert.assertEquals(actual, Excepted_Message);
+			/*for(int i=0; i<element.size();i++)
 			{
 				   System.out.println("At index" +i+ "text is:"+element.get(i).getText());  
-			}
+			}*/
 			logout();
 		}
 		

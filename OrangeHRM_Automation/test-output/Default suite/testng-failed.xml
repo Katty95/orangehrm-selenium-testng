@@ -5,7 +5,7 @@
     <classes>
       <class name="tests.LoginCheckTestNG">
         <methods>
-          <include name="loginFail"/>
+          <include name="searchEmployeebyName"/>
           <include name="teardown"/>
           <include name="setup"/>
         </methods>
